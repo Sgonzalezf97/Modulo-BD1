@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+  <header th:replace="layout/layout :: header"></header>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>DOCUMENTO</th>
+              <th>NOMBRE</th>
+              <th>SEGUNDO NOMBRE</th>
+              <th>APELLIDO</th>
+              <th>SEGUNDO APELLIDO</th>
+              <th>CORREO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="empleado : ${empleados}">
+              <td th:text="${empleado.idEmpleado}"></td>
+              <td th:text="${empleado.numeroDocumentoEmp}"></td>
+              <td th:text="${empleado.nombreEmp}"></td>
+              <td th:text="${empleado.segundoNombreEmp}"></td>
+              <td th:text="${empleado.apellidoEmp}"></td>
+              <td th:text="${empleado.segundoApellidoEmp}"></td>
+              <td th:text="${empleado.correoEmp}"></td>
+              <td><a class="btn btn-primary btn-xs" th:href="@{/modificar/} + ${empleado.idEmpleado}" th:text="${'Editar'}"></a></td>
+            </tr>
+          </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+<footer th:replace="layout/layout :: footer"></footer>
+
+</html>
